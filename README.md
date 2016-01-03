@@ -1,7 +1,7 @@
 # anilinkz-video-enlarger
 
 Adds buttom to vide pages that lets you anlarge the videos for better viewing pleasure.
-By default it enlarges the video 2.25 times (thus better right?).
+By default it enlarges the video 1.5 times (thus better right?).
 
 Any suggestions are welcome.
 Also if you feel it can be done better feel free to make a pull request
