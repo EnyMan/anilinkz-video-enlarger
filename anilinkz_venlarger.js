@@ -25,7 +25,7 @@
 // @name         anilinkz video enlarger
 // @namespace    https://github.com/EnyMan/anilinkz-video-enlarger
 // @version      0.2.3
-// @description  Adds buttom to vide pages that lets you anlarge the videos for better wieving pleasure. By default it enlarges the video 1.5 times = the video is 50% bigger (thus better right?).
+// @description  Adds buttom to vide pages that lets you anlarge the videos for better viewing pleasure. By default it enlarges the video 1.5 times = the video is 125% bigger (thus better right?).
 // @author       Martin Pitak (EnyMan)
 // @include      /http:\/\/anilinkz\.tv\/.*(episode|special).*/
 // @updateURL    https://raw.githubusercontent.com/EnyMan/anilinkz-video-enlarger/master/anilinkz_venlarger.js
