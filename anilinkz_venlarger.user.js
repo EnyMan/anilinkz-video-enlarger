@@ -24,7 +24,7 @@
 // ==UserScript==
 // @name         anilinkz video enlarger
 // @namespace    https://github.com/EnyMan/anilinkz-video-enlarger
-// @version      0.2.4
+// @version      0.2.5
 // @description  Adds buttom to vide pages that lets you anlarge the videos for better viewing pleasure. By default it enlarges the video 1.5 times = the video is 125% bigger (thus better right?).
 // @author       Martin Pitak (EnyMan)
 // @include      /http:\/\/anilinkz\.tv\/.*(episode|special).*/
@@ -36,8 +36,10 @@
 var dheight = 445;
 var dwidth = 712;
 
-var bheight = dheight * 1.5;
-var bwidth = dwidth * 1.5;
+var bheight = Math.floor(dheight * 1.5);
+var bwidth = Math.floor(dwidth * 1.5);
+
+var osrc = "";
 
 $(function() {    
     $("<div> </div>").appendTo("body").attr("style","position: fixed; top: 25%; height: 50px; width: 50px;background-image: url(https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/expand.png);background-size: 100% 100%;background-color: red;border: black 2px solid;-webkit-border-radius: 8px;z-index: 84;").attr("class","mous-button");
@@ -49,6 +51,13 @@ $(function() {
             $('iframe').filter(function(i, e) {return /auengine.com/.test(e.src);}).attr("height", bheight).attr("width", bwidth);
             $('iframe').filter(function(i, e) {return /www.mp4upload.com/.test(e.src);}).attr("height", bheight).attr("width", bwidth);
             $('iframe').filter(function(i, e) {return /www.videonest.net/.test(e.src);}).attr("height", bheight).attr("width", bwidth);
+            // flash player start
+            osrc = $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src");
+            var src = osrc;
+            var src = src.replace(dheight,bheight);
+            var src = src.replace(dwidth,bwidth);
+            $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src",src).attr("height", bheight).attr("width", bwidth);
+            //flash player end
             $('#player').attr("style", 'position: absolute');
             $('#player').css('left',$('#wrapper').width()/2 - $('#player').width()/2);
             $('#chatango').empty(); $('.kwarta').empty();
@@ -65,6 +74,9 @@ $(function() {
                 $('iframe').filter(function(i, e) {return /auengine.com/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
                 $('iframe').filter(function(i, e) {return /www.mp4upload.com/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
                 $('iframe').filter(function(i, e) {return /www.videonest.net/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
+                //flash player start
+                $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src",osrc).attr("height", dheight).attr("width", dwidth);
+                //flash player end
                 $('#player').attr("style", '');
                 $(".mous-button").attr("style", "position: fixed; top: 25%; height: 50px; width: 50px;background-image: url(https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/expand.png);background-size: 100% 100%;background-color: red;border: black 2px solid;-webkit-border-radius: 8px;z-index: 84;").attr("class","mous-button");
             });
@@ -74,6 +86,9 @@ $(function() {
             $('iframe').filter(function(i, e) {return /auengine.com/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
             $('iframe').filter(function(i, e) {return /www.mp4upload.com/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
             $('iframe').filter(function(i, e) {return /www.videonest.net/.test(e.src);}).attr("height", dheight).attr("width", dwidth);
+            // flash player start 
+            $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src",osrc).attr("height", dheight).attr("width", dwidth);
+            // flash player end
             $('#player').attr("style", '');
             $(".mous-button").attr("style", "position: fixed; top: 25%; height: 50px; width: 50px;background-image: url(https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/expand.png);background-size: 100% 100%;background-color: red;border: black 2px solid;-webkit-border-radius: 8px;z-index: 84;").attr("class","mous-button");
         }
