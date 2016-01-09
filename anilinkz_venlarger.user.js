@@ -53,9 +53,11 @@ $(function() {
             $('iframe').filter(function(i, e) {return /www.videonest.net/.test(e.src);}).attr("height", bheight).attr("width", bwidth);
             // flash player start
             osrc = $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src");
-            var src = osrc;
-            var src = src.replace(dheight,bheight);
-            var src = src.replace(dwidth,bwidth);
+            if(osrc){
+                var src = osrc;
+                var src = src.replace(dheight,bheight);
+                var src = src.replace(dwidth,bwidth);
+            };
             $('iframe').filter(function(i, e) {return /videous.tv/.test(e.src);}).attr("src",src).attr("height", bheight).attr("width", bwidth);
             //flash player end
             $('#player').attr("style", 'position: absolute');
